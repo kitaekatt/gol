@@ -1,0 +1,29 @@
+# Minimal CMake file for testing basic compilation structure
+cmake_minimum_required(VERSION 3.20)
+project(flecs_game_of_life_minimal VERSION 1.0.0 LANGUAGES CXX)
+
+# C++20 standard
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Include directories
+include_directories(include)
+
+# Test compilation without external dependencies
+add_executable(test_compilation_only
+    test_minimal.cpp
+)
+
+# Try to compile basic structures
+add_library(test_headers_only INTERFACE)
+target_include_directories(test_headers_only INTERFACE include)
+
+# Set basic compiler flags
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(test_headers_only INTERFACE -Wall -Wextra -Wpedantic)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(test_headers_only INTERFACE /W4)
+endif()
+
+target_link_libraries(test_compilation_only test_headers_only)

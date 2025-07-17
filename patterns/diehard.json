@@ -1,0 +1,24 @@
+{
+  "name": "Diehard",
+  "description": "A methuselah that evolves for 130 generations before dying completely",
+  "author": "Charles Corderman",
+  "pattern_type": "methuselah",
+  "period": 1,
+  "cells": [
+    {"x": 6, "y": 0},
+    {"x": 0, "y": 1},
+    {"x": 1, "y": 1},
+    {"x": 5, "y": 1},
+    {"x": 6, "y": 1},
+    {"x": 7, "y": 1}
+  ],
+  "validation": {
+    "expected_behavior": "Evolves chaotically for 130 generations before dying completely",
+    "test_steps": 130,
+    "stable_at_step": 130,
+    "final_live_cells": 0,
+    "death_generation": 130,
+    "max_population": 41,
+    "performance_note": "Good test for cell lifecycle and cleanup systems"
+  }
+}

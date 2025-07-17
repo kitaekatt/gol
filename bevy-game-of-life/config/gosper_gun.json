@@ -1,0 +1,46 @@
+{
+  "name": "Gosper Glider Gun",
+  "description": "The first discovered gun pattern that creates gliders periodically. Produces a new glider every 30 generations, proving that patterns can grow indefinitely.",
+  "author": "Bill Gosper",
+  "category": "gun",
+  "period": 30,
+  "displacement": [0, 0],
+  "bounding_box": [36, 9],
+  "recommended_grid": {
+    "width": 100,
+    "height": 80,
+    "wrap_edges": false
+  },
+  "metadata": {
+    "discovery_year": 1970,
+    "significance": "First gun pattern discovered, proved infinite growth possible",
+    "prize": "Won $50 prize from John Conway for disproving his conjecture"
+  },
+  "pattern": {
+    "format": "coordinates",
+    "offset": [5, 5],
+    "cells": [
+      [0, 4], [0, 5],
+      [1, 4], [1, 5],
+      [10, 4], [10, 5], [10, 6],
+      [11, 3], [11, 7],
+      [12, 2], [12, 8],
+      [13, 2], [13, 8],
+      [14, 5],
+      [15, 3], [15, 7],
+      [16, 4], [16, 5], [16, 6],
+      [17, 5],
+      [20, 2], [20, 3], [20, 4],
+      [21, 2], [21, 3], [21, 4],
+      [22, 1], [22, 5],
+      [24, 0], [24, 1], [24, 5], [24, 6],
+      [34, 2], [34, 3],
+      [35, 2], [35, 3]
+    ]
+  },
+  "simulation": {
+    "recommended_fps": 10,
+    "interesting_generations": [30, 60, 90, 120, 150],
+    "notes": "Watch for gliders being emitted every 30 generations. Best viewed with a large grid to see gliders travel."
+  }
+}

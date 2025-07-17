@@ -1,0 +1,35 @@
+{
+  "name": "Glider",
+  "description": "A simple spaceship that travels diagonally across the grid, completing one cycle every 4 generations and moving one cell diagonally every 4 generations.",
+  "author": "John Conway",
+  "category": "spaceship",
+  "period": 4,
+  "displacement": [1, 1],
+  "bounding_box": [3, 3],
+  "recommended_grid": {
+    "width": 50,
+    "height": 50,
+    "wrap_edges": false
+  },
+  "metadata": {
+    "discovery_year": 1970,
+    "significance": "First discovered spaceship in Conway's Game of Life",
+    "variants": ["Glider gun", "Glider synthesis"]
+  },
+  "pattern": {
+    "format": "coordinates",
+    "offset": [10, 10],
+    "cells": [
+      [1, 0],
+      [2, 1],
+      [0, 2],
+      [1, 2],
+      [2, 2]
+    ]
+  },
+  "simulation": {
+    "recommended_fps": 2,
+    "interesting_generations": [4, 8, 12, 16],
+    "notes": "Watch how the glider moves one cell diagonally every 4 generations"
+  }
+}

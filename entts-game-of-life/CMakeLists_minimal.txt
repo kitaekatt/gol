@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(GameOfLife_Minimal)
+
+set(CMAKE_CXX_STANDARD 17)  # Start with C++17 instead of C++20
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(test_minimal test_minimal.cpp)

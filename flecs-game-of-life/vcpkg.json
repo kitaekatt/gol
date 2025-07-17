@@ -1,0 +1,53 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+  "name": "flecs-game-of-life",
+  "version": "1.0.0",
+  "description": "High-performance Conway's Game of Life implementation using FLECS ECS",
+  "homepage": "https://github.com/your-username/flecs-game-of-life",
+  "documentation": "https://github.com/your-username/flecs-game-of-life/blob/main/README.md",
+  "license": "MIT",
+  "dependencies": [
+    {
+      "name": "flecs",
+      "version>=": "3.2.0",
+      "features": [
+        "cpp"
+      ]
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.11.0"
+    }
+  ],
+  "features": {
+    "tests": {
+      "description": "Build with testing support",
+      "dependencies": [
+        {
+          "name": "catch2",
+          "version>=": "3.4.0"
+        }
+      ]
+    },
+    "benchmarks": {
+      "description": "Build with benchmarking support", 
+      "dependencies": [
+        {
+          "name": "benchmark",
+          "version>=": "1.8.0"
+        }
+      ]
+    },
+    "profiling": {
+      "description": "Enable profiling and performance monitoring",
+      "dependencies": []
+    }
+  },
+  "builtin-baseline": "2023.11.20",
+  "overrides": [
+    {
+      "name": "flecs",
+      "version": "3.2.11"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Lightweight Spaceship",
+  "description": "A period-4 spaceship that moves horizontally",
+  "author": "John Conway",
+  "pattern_type": "spaceship",
+  "period": 4,
+  "cells": [
+    {"x": 0, "y": 0},
+    {"x": 3, "y": 0},
+    {"x": 4, "y": 1},
+    {"x": 0, "y": 2},
+    {"x": 4, "y": 2},
+    {"x": 1, "y": 3},
+    {"x": 2, "y": 3},
+    {"x": 3, "y": 3},
+    {"x": 4, "y": 3}
+  ],
+  "validation": {
+    "expected_behavior": "Moves horizontally to the right, returning to original shape every 4 generations at new position",
+    "test_steps": 8,
+    "displacement_per_period": {"x": 2, "y": 0},
+    "final_live_cells": 9,
+    "movement_vector": "east",
+    "speed": "c/2 (half the speed of light)"
+  }
+}

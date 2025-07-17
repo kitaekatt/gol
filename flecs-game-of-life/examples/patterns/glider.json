@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "name": "Glider",
+    "description": "A simple spaceship that moves diagonally across the grid",
+    "author": "John Conway",
+    "period": 4,
+    "displacement": [1, 1],
+    "classification": "spaceship",
+    "ruleSet": "B3/S23",
+    "recommendedGridSize": {
+      "minWidth": 20,
+      "minHeight": 20
+    }
+  },
+  "boundingBox": {
+    "width": 3,
+    "height": 3
+  },
+  "cells": [
+    {"x": 1, "y": 0},
+    {"x": 2, "y": 1},
+    {"x": 0, "y": 2},
+    {"x": 1, "y": 2},
+    {"x": 2, "y": 2}
+  ],
+  "notes": "The glider is one of the most well-known patterns in Conway's Game of Life. It travels diagonally across the grid, returning to its original shape every 4 generations but displaced by one cell diagonally.",
+  "initialPosition": {
+    "x": -1,
+    "y": -1
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "timestamp": "2025-07-17T10:04:49-05:00",
+  "baseline_type": "initial",
+  "validator": "meta-mode",
+  "files": {
+    "/mnt/c/dev/gol/CLAUDE.md": {
+      "hash": "419bd9054bdb270aaa9ac3ef6e6b832086cdac372ba350c2b3df385b85f4c566",
+      "size": 5069,
+      "last_modified": "2025-07-17T10:04:27-05:00",
+      "validator": "meta-mode",
+      "notes": "Updated during validation testing"
+    },
+    "/mnt/c/dev/gol/ARCHITECTURE.md": {
+      "hash": "19b1eed295a9fd115a16bc5583c69526ebdebf7f7a0582e2d8acd7f8e6747dc2",
+      "size": 8192,
+      "last_modified": "2025-07-17T00:00:00Z",
+      "validator": "meta-mode",
+      "notes": "Baseline capture"
+    },
+    "/mnt/c/dev/gol/REQUIREMENTS.md": {
+      "hash": "dd848c4d55a5dc7fe86f28d17081d1cb1ca1e1909360f4230bf5886d919cde0c",
+      "size": 6144,
+      "last_modified": "2025-07-17T00:00:00Z",
+      "validator": "meta-mode",
+      "notes": "Baseline capture"
+    },
+    "/mnt/c/dev/gol/PROJECTPLAN.md": {
+      "hash": "0166719bc1bed4fc9229f73e78fbfb1b265270d31c15d8b8217701a207d992d4",
+      "size": 10896,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/architecture.md": {
+      "hash": "0dd979d4d132aba2fb8ebd736540af907c7d27c755cfdf0114f4643fed85c23e",
+      "size": 2504,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/claude-md-rollback.md": {
+      "hash": "ddbe92982500419fa86d34c577b400ea5847c92d0fc80298ed7484eb677786d0",
+      "size": 2273,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/claude-md-strategy.md": {
+      "hash": "a4cd317311433297f78f4c5f28597e5e7d8a0b1e32fd7d5a79da0385fcf2af6d",
+      "size": 7258,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/commands.md": {
+      "hash": "dde3e973ca9b9a7b2717997dc94d8fe18b890f7111cea3cd0f221168e622c118",
+      "size": 5560,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/development.md": {
+      "hash": "ed2523bfbf7912687feee2733476f30ed81852f41a42e146d57a1765e8760a48",
+      "size": 2407,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/modes.md": {
+      "hash": "a215f1df3d7e7c96640d3e8a669047d67acdcfac961600ce94984f3d9b783d53",
+      "size": 17862,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/operations.md": {
+      "hash": "bb0c3cbe4a60eae2dd0bc2bc68cb50d7ab4344554926934494aaaa47aaa4ab95",
+      "size": 1973,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    },
+    "/mnt/c/dev/gol/meta/docs/tasks.md": {
+      "hash": "6be5517aadb963e3019b7946e9f3f01f41643c0249fe04693fb291fe14aa05c8",
+      "size": 1530,
+      "last_modified": "2025-07-17T10:04:49-05:00",
+      "validator": "meta-mode",
+      "notes": "Initial baseline generation"
+    }
+  },
+  "validation_protocol": "pre-modification-checkpoint",
+  "next_validation": "post-task-completion"
+}

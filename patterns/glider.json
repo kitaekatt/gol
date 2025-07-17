@@ -1,0 +1,21 @@
+{
+  "name": "Glider",
+  "description": "A simple spaceship that moves diagonally across the grid",
+  "author": "John Conway",
+  "pattern_type": "spaceship",
+  "period": 4,
+  "cells": [
+    {"x": 1, "y": 0},
+    {"x": 2, "y": 1},
+    {"x": 0, "y": 2},
+    {"x": 1, "y": 2},
+    {"x": 2, "y": 2}
+  ],
+  "validation": {
+    "expected_behavior": "Moves diagonally southeast, returning to original shape every 4 generations at new position",
+    "test_steps": 8,
+    "displacement_per_period": {"x": 1, "y": 1},
+    "final_live_cells": 5,
+    "movement_vector": "southeast"
+  }
+}

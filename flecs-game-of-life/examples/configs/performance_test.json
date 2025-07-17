@@ -1,0 +1,68 @@
+{
+  "grid": {
+    "boundaries": {
+      "minX": -1000,
+      "maxX": 1000,
+      "minY": -1000,
+      "maxY": 1000
+    },
+    "initialPattern": {
+      "type": "random",
+      "density": 0.3,
+      "seed": 42,
+      "region": {
+        "minX": -100,
+        "maxX": 100,
+        "minY": -100,
+        "maxY": 100
+      }
+    },
+    "wrapEdges": false
+  },
+  "simulation": {
+    "targetFPS": 60,
+    "maxGenerations": 1000,
+    "autoStep": true,
+    "stepDelayMs": 0
+  },
+  "performance": {
+    "maxEntities": 10000000,
+    "enableProfiling": true,
+    "memoryPoolSize": 1048576,
+    "spatialHashBuckets": 65536
+  },
+  "rendering": {
+    "console": {
+      "viewportWidth": 120,
+      "viewportHeight": 40,
+      "centerOnActivity": true,
+      "liveChar": "#",
+      "deadChar": " ",
+      "borderChar": ".",
+      "showGeneration": true,
+      "showCellCount": true,
+      "showPerformance": true
+    },
+    "colors": {
+      "enabled": false
+    }
+  },
+  "unity": {
+    "apiVersion": "1.0",
+    "threadSafe": true,
+    "updateFrequencyHz": 60,
+    "maxCellsPerQuery": 100000,
+    "enableCallbacks": false
+  },
+  "logging": {
+    "level": "warning",
+    "enableFileLogging": true,
+    "logFilePath": "logs/performance_test.log",
+    "categories": {
+      "simulation": false,
+      "performance": true,
+      "unity": false,
+      "patterns": false
+    }
+  }
+}

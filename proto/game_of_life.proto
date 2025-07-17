@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+package game_of_life;
+
+// Game of Life gRPC service definition
+service GameOfLifeService {
+  // Health and status
+  rpc GetStatus(StatusRequest) returns (StatusResponse);
+  
+  // Simulation management
+  rpc CreateSimulation(CreateSimulationRequest) returns (SimulationResponse);
+  rpc GetSimulation(GetSimulationRequest) returns (SimulationResponse);
+  rpc UpdateSimulation(UpdateSimulationRequest) returns (SimulationResponse);
+  rpc DeleteSimulation(DeleteSimulationRequest) returns (DeleteResponse);
+  
+  // Simulation control
+  rpc StepSimulation(StepSimulationRequest) returns (StepResponse);
+  rpc LoadPattern(LoadPatternRequest) returns (LoadPatternResponse);
+  
+  // Streaming (for real-time updates)
+  rpc StreamSimulation(StreamRequest) returns (stream SimulationUpdate);
+}
+
+// Status messages
+message StatusRequest {}
+
+message StatusResponse {
+  string status = 1;           // "healthy"
+  string version = 2;          // "1.0.0"
+  string implementation = 3;   // "bevy|entt|flecs"
+  int64 uptime_seconds = 4;
+}
+
+// Simulation management messages
+message CreateSimulationRequest {
+  int32 width = 1;
+  int32 height = 2;
+  string initial_pattern = 3;  // Optional pattern name
+}
+
+message GetSimulationRequest {
+  string id = 1;
+}
+
+message UpdateSimulationRequest {
+  string id = 1;
+  int64 generation = 2;        // Optional: set generation
+  repeated Cell cells = 3;     // Optional: set cell states
+}
+
+message DeleteSimulationRequest {
+  string id = 1;
+}
+
+message DeleteResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Simulation control messages
+message StepSimulationRequest {
+  string id = 1;
+  int32 steps = 2;            // Number of steps to advance (default: 1)
+}
+
+message StepResponse {
+  int64 generation = 1;
+  int64 live_cells = 2;
+  int64 changed_cells = 3;
+}
+
+message LoadPatternRequest {
+  string id = 1;
+  Pattern pattern = 2;
+  Position position = 3;      // Where to place the pattern
+}
+
+message LoadPatternResponse {
+  bool success = 1;
+  int32 cells_added = 2;
+  string message = 3;
+}
+
+// Streaming messages
+message StreamRequest {
+  string id = 1;
+  bool auto_step = 2;         // Automatically advance simulation
+  int32 step_interval_ms = 3; // Milliseconds between steps
+}
+
+message SimulationUpdate {
+  int64 generation = 1;
+  int64 live_cells = 2;
+  repeated Cell changed_cells = 3;
+  bool simulation_ended = 4;  // True if simulation reached stable state
+}
+
+// Core data structures
+message Cell {
+  int32 x = 1;
+  int32 y = 2;
+  bool alive = 3;
+  int32 neighbors = 4;
+}
+
+message Position {
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message Pattern {
+  string name = 1;
+  string description = 2;
+  string author = 3;
+  repeated Position cells = 4;
+}
+
+message SimulationResponse {
+  string id = 1;
+  int64 generation = 2;
+  int64 live_cells = 3;
+  GridInfo grid = 4;
+  repeated Cell cells = 5;
+}
+
+message GridInfo {
+  int32 width = 1;
+  int32 height = 2;
+}
+
+// Configuration messages
+message Configuration {
+  GridConfig grid = 1;
+  SimulationConfig simulation = 2;
+  PerformanceConfig performance = 3;
+}
+
+message GridConfig {
+  int32 width = 1;
+  int32 height = 2;
+  bool wrap_edges = 3;
+}
+
+message SimulationConfig {
+  int64 max_generations = 1;
+  int32 auto_step_ms = 2;
+}
+
+message PerformanceConfig {
+  int64 max_live_cells = 1;
+  int64 memory_limit_mb = 2;
+}

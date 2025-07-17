@@ -1,0 +1,99 @@
+[package]
+name = "bevy-game-of-life"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A high-performance Game of Life implementation using Bevy ECS"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/bevy-game-of-life"
+keywords = ["gamedev", "bevy", "cellular-automaton", "game-of-life", "ecs"]
+categories = ["games", "simulation"]
+
+[dependencies]
+# Bevy game engine with minimal features
+bevy = { version = "0.12", default-features = false }
+
+# Serialization for configuration and pattern files
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Performance and utilities
+rayon = "1.8"  # Parallel processing utilities
+scopeguard = "1.2"  # RAII guard for cleanup
+
+# Unix-specific dependencies  
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+# Windows-specific dependencies
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["consoleapi", "handleapi", "processenv", "winbase", "wincon", "fileapi"] }
+
+[dev-dependencies]
+# Testing utilities
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.4"
+tempfile = "3.8"
+
+[profile.dev]
+# Fast compile times for development
+opt-level = 1
+debug = true
+
+[profile.release]
+# Maximum performance for release builds
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.dev.package."*"]
+# Optimize dependencies even in dev mode for better performance
+opt-level = 3
+
+[[bin]]
+name = "bevy-game-of-life"
+path = "src/main.rs"
+
+# Unified console experience - EntTS style
+[[bin]]
+name = "console"
+path = "src/bin/unified_console.rs"
+
+# Keep test binary for development
+[[bin]]
+name = "test_blinker"
+path = "src/bin/test_blinker.rs"
+
+[[bench]]
+name = "grid_performance"
+harness = false
+
+[workspace]
+# This could be expanded to include multiple crates later
+members = ["."]
+
+# Bevy optimization settings
+[profile.dev.package.bevy_dylib]
+opt-level = 3
+
+[features]
+default = []
+
+# Optional features for different build configurations
+debug_rendering = []
+performance_profiling = []
+
+# Platform-specific optimizations
+[target.'cfg(target_os = "linux")'.dependencies]
+# Linux-specific dependencies if needed
+
+[target.'cfg(target_os = "windows")'.dependencies]
+# Windows-specific dependencies if needed
+
+[target.'cfg(target_os = "macos")'.dependencies]
+# macOS-specific dependencies if needed

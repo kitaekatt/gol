@@ -1,0 +1,20 @@
+{
+  "name": "Block",
+  "description": "A simple still life pattern",
+  "author": "John Conway",
+  "pattern_type": "still_life",
+  "period": 1,
+  "cells": [
+    {"x": 0, "y": 0},
+    {"x": 1, "y": 0},
+    {"x": 0, "y": 1},
+    {"x": 1, "y": 1}
+  ],
+  "validation": {
+    "expected_behavior": "Remains completely unchanged across all generations",
+    "test_steps": 10,
+    "stable_at_step": 0,
+    "final_live_cells": 4,
+    "stability_check": "identical_across_all_generations"
+  }
+}

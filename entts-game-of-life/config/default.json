@@ -1,0 +1,46 @@
+{
+  "$schema": "./config_schema.json",
+  "grid": {
+    "width": 100,
+    "height": 100,
+    "initial_pattern": "glider_gun",
+    "wrap_edges": false
+  },
+  "simulation": {
+    "max_generations": 1000,
+    "auto_pause_on_stable": true,
+    "stable_detection_cycles": 10,
+    "step_delay_ms": 100
+  },
+  "performance": {
+    "target_fps": 60,
+    "memory_limit_mb": 100,
+    "enable_spatial_optimization": true,
+    "batch_size": 1000
+  },
+  "rendering": {
+    "console_output": true,
+    "clear_screen": true,
+    "show_generation_count": true,
+    "show_living_cells_count": true,
+    "alive_char": "█",
+    "dead_char": " ",
+    "border_char": "·"
+  },
+  "patterns": {
+    "library_path": "./patterns/",
+    "default_patterns": [
+      "glider",
+      "glider_gun",
+      "beacon",
+      "blinker",
+      "toad",
+      "pulsar"
+    ]
+  },
+  "logging": {
+    "level": "info",
+    "log_to_file": false,
+    "log_file_path": "./logs/game_of_life.log"
+  }
+}

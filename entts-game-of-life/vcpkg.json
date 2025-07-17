@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "High-performance Conway's Game of Life using EnTT ECS",
+  "homepage": "https://github.com/studio/game-of-life",
+  "license": "MIT",
+  "dependencies": [
+    {
+      "name": "entt",
+      "version>=": "3.12.2"
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.11.3"
+    }
+  ],
+  "features": {
+    "testing": {
+      "description": "Build with testing support",
+      "dependencies": [
+        {
+          "name": "catch2",
+          "version>=": "3.0.0"
+        }
+      ]
+    },
+    "benchmarks": {
+      "description": "Build with performance benchmarking support",
+      "dependencies": [
+        {
+          "name": "benchmark",
+          "version>=": "1.7.0"
+        }
+      ]
+    }
+  },
+  "builtin-baseline": "bdd229e13c66fa11acdc0bc8fed8e7474cd24aa5"
+}

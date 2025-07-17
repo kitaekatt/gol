@@ -1,0 +1,44 @@
+{
+  "name": "Gosper Glider Gun",
+  "description": "The first discovered gun pattern that periodically shoots gliders. It demonstrates that the Game of Life can exhibit unbounded growth.",
+  "author": "Bill Gosper",
+  "category": "gun",
+  "period": 30,
+  "displacement": [0, 0],
+  "recommended_grid": {
+    "width": 80,
+    "height": 50,
+    "wrap_edges": false
+  },
+  "bounding_box": {
+    "width": 36,
+    "height": 9
+  },
+  "cells": [
+    {"x": 5, "y": 5}, {"x": 5, "y": 6},
+    {"x": 6, "y": 5}, {"x": 6, "y": 6},
+    
+    {"x": 15, "y": 5}, {"x": 15, "y": 6}, {"x": 15, "y": 7},
+    {"x": 16, "y": 4}, {"x": 16, "y": 8},
+    {"x": 17, "y": 3}, {"x": 17, "y": 9},
+    {"x": 18, "y": 3}, {"x": 18, "y": 9},
+    {"x": 19, "y": 6},
+    {"x": 20, "y": 4}, {"x": 20, "y": 8},
+    {"x": 21, "y": 5}, {"x": 21, "y": 6}, {"x": 21, "y": 7},
+    {"x": 22, "y": 6},
+    
+    {"x": 25, "y": 3}, {"x": 25, "y": 4}, {"x": 25, "y": 5},
+    {"x": 26, "y": 3}, {"x": 26, "y": 4}, {"x": 26, "y": 5},
+    {"x": 27, "y": 2}, {"x": 27, "y": 6},
+    
+    {"x": 29, "y": 2}, {"x": 29, "y": 3}, {"x": 29, "y": 6}, {"x": 29, "y": 7},
+    
+    {"x": 39, "y": 4}, {"x": 39, "y": 5},
+    {"x": 40, "y": 4}, {"x": 40, "y": 5}
+  ],
+  "metadata": {
+    "discovered": "1970",
+    "population": 36,
+    "notes": "Shoots a glider every 30 generations. The gun itself returns to its original state after 30 generations while creating a new glider. This was the first proof that patterns could grow indefinitely."
+  }
+}

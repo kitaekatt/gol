@@ -1,0 +1,33 @@
+{
+  "name": "Blinker",
+  "description": "The simplest oscillator in Conway's Game of Life. Alternates between horizontal and vertical orientations every generation.",
+  "author": "John Conway",
+  "category": "oscillator",
+  "period": 2,
+  "displacement": [0, 0],
+  "bounding_box": [3, 3],
+  "recommended_grid": {
+    "width": 20,
+    "height": 20,
+    "wrap_edges": false
+  },
+  "metadata": {
+    "discovery_year": 1970,
+    "significance": "Simplest and most common oscillator",
+    "variants": ["Multiple blinkers", "Blinker puffer"]
+  },
+  "pattern": {
+    "format": "coordinates",
+    "offset": [10, 10],
+    "cells": [
+      [0, 1],
+      [1, 1],
+      [2, 1]
+    ]
+  },
+  "simulation": {
+    "recommended_fps": 1,
+    "interesting_generations": [1, 2, 3, 4],
+    "notes": "Perfect for testing basic oscillation behavior. Generation 1 should be vertical, generation 2 horizontal."
+  }
+}

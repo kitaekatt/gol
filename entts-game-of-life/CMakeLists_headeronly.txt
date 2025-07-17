@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.10)
+project(GameOfLife_HeaderOnly)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Header-only approach - download dependencies as git submodules or headers
+# This avoids vcpkg complexity
+
+# For now, create a version without external dependencies
+add_executable(test_basic_gol
+    src/core/GameConfig.cpp
+    src/core/GameOfLifeSimulation_simple.cpp
+    test_basic_gol.cpp
+)
+
+target_include_directories(test_basic_gol PRIVATE include)

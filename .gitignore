@@ -1,0 +1,238 @@
+# Game of Life Multi-Implementation Project .gitignore
+
+# ===============================
+# OS SPECIFIC FILES
+# ===============================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ===============================
+# RUST SPECIFIC (Bevy, Console Client)
+# ===============================
+# Rust build artifacts
+target/
+Cargo.lock
+*.pdb
+
+# Rust backup files
+**/*.rs.bk
+
+# ===============================
+# C++ SPECIFIC (EnTT, Flecs)
+# ===============================
+# C++ build artifacts
+build/
+build_debug/
+build_release/
+bin/
+obj/
+out/
+
+# C++ compiled files
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.o
+*.obj
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+CTestTestfile.cmake
+_deps/
+
+# Visual Studio files
+*.sln
+*.vcproj
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.suo
+*.user
+*.sdf
+*.opensdf
+*.db
+*.ipch
+
+# Code::Blocks files
+*.cbp
+*.depend
+*.layout
+
+# ===============================
+# DEVELOPMENT TOOLS
+# ===============================
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===============================
+# LANGUAGE SPECIFIC
+# ===============================
+# Node.js (if used for tooling)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if used for tooling)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ===============================
+# LOGS AND TEMPORARY FILES
+# ===============================
+# Log files
+*.log
+*.logs
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+*.bak
+*.swp
+*.swo
+
+# Server logs
+server.log
+*.log.*
+
+# ===============================
+# TESTING AND BENCHMARKING
+# ===============================
+# Test artifacts
+test_results/
+coverage/
+*.gcda
+*.gcno
+
+# Benchmark outputs
+benchmark_results/
+*.bench
+
+# ===============================
+# DOCUMENTATION BUILDS
+# ===============================
+# Generated documentation
+docs/build/
+docs/_build/
+site/
+
+# ===============================
+# PACKAGE MANAGERS
+# ===============================
+# Conan
+conaninfo.txt
+conanfile.txt
+conanbuildinfo.*
+
+# vcpkg
+vcpkg_installed/
+
+# ===============================
+# PERFORMANCE AND PROFILING
+# ===============================
+# Profiling data
+*.prof
+*.profile
+perf.data*
+callgrind.out.*
+
+# ===============================
+# CLAUDE CODE SPECIFIC
+# ===============================
+# Local Claude settings (keep shared settings)
+.claude/settings.local.json
+.claude/conversations/
+
+# Task completion tracking
+**/tasks/*.claimed
+**/coordination/active-agents.json
+
+# ===============================
+# PROJECT SPECIFIC
+# ===============================
+# Game of Life pattern files that are auto-generated
+patterns/generated/
+
+# Temporary test files
+test_output/
+temp_patterns/
+
+# gRPC generated files (if not committed)
+# proto/generated/
+
+# Performance analysis temporary files
+*.perf
+analysis_temp/
+
+# ===============================
+# ARCHIVES AND BACKUPS
+# ===============================
+# Archive files
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.zip
+*.rar
+*.7z
+
+# Backup files
+*.backup
+*.bak
+*.old
+CLAUDE.md.backup

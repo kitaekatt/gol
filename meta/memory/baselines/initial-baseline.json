@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-07-17T00:00:00Z",
+  "baseline_type": "initial",
+  "validator": "meta-mode",
+  "files": {
+    "/mnt/c/dev/gol/CLAUDE.md": {
+      "hash": "7028dd6f9f8fad0d72a5df5bb8a21c7582de649ce85ae62abfe61ddda1f077b1",
+      "size": 15742,
+      "last_modified": "2025-07-17T00:00:00Z",
+      "validator": "meta-mode",
+      "notes": "Updated with memory maintenance reminders 11-12"
+    },
+    "/mnt/c/dev/gol/ARCHITECTURE.md": {
+      "hash": "19b1eed295a9fd115a16bc5583c69526ebdebf7f7a0582e2d8acd7f8e6747dc2",
+      "size": 8192,
+      "last_modified": "2025-07-17T00:00:00Z",
+      "validator": "meta-mode",
+      "notes": "Baseline capture"
+    },
+    "/mnt/c/dev/gol/REQUIREMENTS.md": {
+      "hash": "dd848c4d55a5dc7fe86f28d17081d1cb1ca1e1909360f4230bf5886d919cde0c",
+      "size": 6144,
+      "last_modified": "2025-07-17T00:00:00Z",
+      "validator": "meta-mode",
+      "notes": "Baseline capture"
+    }
+  },
+  "validation_protocol": "pre-modification-checkpoint",
+  "next_validation": "post-task-completion"
+}

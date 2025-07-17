@@ -1,0 +1,24 @@
+{
+  "name": "Acorn",
+  "description": "A methuselah that evolves for 5206 generations before stabilizing",
+  "author": "Charles Corderman",
+  "pattern_type": "methuselah",
+  "period": 1,
+  "cells": [
+    {"x": 1, "y": 0},
+    {"x": 3, "y": 1},
+    {"x": 0, "y": 2},
+    {"x": 1, "y": 2},
+    {"x": 4, "y": 2},
+    {"x": 5, "y": 2},
+    {"x": 6, "y": 2}
+  ],
+  "validation": {
+    "expected_behavior": "Evolves chaotically for 5206 generations before stabilizing",
+    "test_steps": 5206,
+    "stable_at_step": 5206,
+    "final_live_cells": 633,
+    "final_stable_objects": 41,
+    "performance_warning": "Long-running pattern - excellent stress test for implementations"
+  }
+}

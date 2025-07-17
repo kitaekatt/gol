@@ -1,0 +1,83 @@
+{
+  "grid": {
+    "boundaries": {
+      "minX": -500,
+      "maxX": 500,
+      "minY": -500,
+      "maxY": 500
+    },
+    "initialPattern": {
+      "type": "builtin",
+      "name": "glider",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "wrapEdges": false
+  },
+  "simulation": {
+    "targetFPS": 10,
+    "maxGenerations": 0,
+    "autoStep": true,
+    "stepDelayMs": 100
+  },
+  "performance": {
+    "maxEntities": 1000000,
+    "enableProfiling": false,
+    "memoryPoolSize": 65536,
+    "spatialHashBuckets": 8192
+  },
+  "rendering": {
+    "console": {
+      "viewportWidth": 80,
+      "viewportHeight": 24,
+      "centerOnActivity": true,
+      "liveChar": "#",
+      "deadChar": " ",
+      "borderChar": ".",
+      "showGeneration": true,
+      "showCellCount": true,
+      "showPerformance": true
+    },
+    "colors": {
+      "enabled": true,
+      "liveCell": "green",
+      "newCell": "bright_green",
+      "dyingCell": "red",
+      "background": "black"
+    }
+  },
+  "unity": {
+    "apiVersion": "1.0",
+    "threadSafe": true,
+    "updateFrequencyHz": 60,
+    "maxCellsPerQuery": 10000,
+    "enableCallbacks": true,
+    "callbackEvents": [
+      "generation_complete",
+      "pattern_detected",
+      "simulation_stopped"
+    ]
+  },
+  "patterns": {
+    "searchPaths": [
+      "patterns/",
+      "examples/patterns/"
+    ],
+    "autoDetectOscillators": true,
+    "autoDetectSpaceships": true,
+    "maxDetectionPeriod": 100
+  },
+  "logging": {
+    "level": "info",
+    "enableFileLogging": false,
+    "logFilePath": "logs/flecs_gol.log",
+    "categories": {
+      "simulation": true,
+      "performance": true,
+      "unity": true,
+      "patterns": true
+    }
+  }
+}

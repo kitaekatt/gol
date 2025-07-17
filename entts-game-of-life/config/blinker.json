@@ -1,0 +1,27 @@
+{
+  "name": "Blinker",
+  "description": "The simplest oscillator in Conway's Game of Life. It alternates between horizontal and vertical orientations every generation.",
+  "author": "John Conway",
+  "category": "oscillator",
+  "period": 2,
+  "displacement": [0, 0],
+  "recommended_grid": {
+    "width": 20,
+    "height": 20,
+    "wrap_edges": false
+  },
+  "bounding_box": {
+    "width": 3,
+    "height": 1
+  },
+  "cells": [
+    {"x": 10, "y": 10},
+    {"x": 11, "y": 10},
+    {"x": 12, "y": 10}
+  ],
+  "metadata": {
+    "discovered": "1970",
+    "population": 3,
+    "notes": "The first discovered oscillator. In generation 1 it's horizontal, in generation 2 it's vertical, then repeats."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "name": "Blinker",
+    "description": "A simple period-2 oscillator",
+    "author": "John Conway",
+    "period": 2,
+    "displacement": [0, 0],
+    "classification": "oscillator",
+    "ruleSet": "B3/S23",
+    "recommendedGridSize": {
+      "minWidth": 10,
+      "minHeight": 10
+    }
+  },
+  "boundingBox": {
+    "width": 3,
+    "height": 1
+  },
+  "cells": [
+    {"x": 0, "y": 0},
+    {"x": 1, "y": 0},
+    {"x": 2, "y": 0}
+  ],
+  "notes": "The blinker is the simplest oscillator in Conway's Game of Life, alternating between a horizontal and vertical line of three cells.",
+  "initialPosition": {
+    "x": -1,
+    "y": 0
+  }
+}

@@ -1,0 +1,42 @@
+# Build directories
+build/
+build-*/
+cmake-build-*/
+
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Unity specific
+unity/Library/
+unity/Temp/
+unity/Logs/
+unity/UserSettings/
+unity/*.csproj
+unity/*.sln
