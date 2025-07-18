@@ -15,7 +15,16 @@
       "whats_next": ["what's next", "what is next", "next", "what should i do", "what should i work on"],
       "update_orchestrator": ["update the orchestrator", "update orchestrator", "report to orchestrator"],
       "orchestrate_task": ["orchestrate *", "orchestrate task *", "orchestrate work on *"],
+      "orchestrate_mode": ["orchestrate meta", "orchestrate bevy", "orchestrate entt", "orchestrate flecs", "orchestrate console"],
       "action": "execute_immediately"
+    },
+    "github_development": {
+      "github_continue_development": ["github continue development", "continue github development", "github continue", "github next task"],
+      "github_list_tasks": ["github list tasks", "list github tasks", "github available tasks", "show github issues"],
+      "github_claim_task": ["github claim *", "claim github issue *", "assign github issue *"],
+      "github_complete_task": ["github complete *", "complete github issue *", "finish github issue *"],
+      "github_update_status": ["github update status *", "update github status *", "change github status *"],
+      "action": "execute_github_immediately"
     },
     "information": {
       "commands": ["commands", "help", "what can i do"],
@@ -59,6 +68,7 @@
 - **"What's next"** - Summarize next task without executing it
 - **"Update the orchestrator"** - Provide structured completion report (stay in current mode)
 - **"Orchestrate [task description]"** - Create task file and spawn sub-task using Task tool (orchestrator mode only)
+- **"Orchestrate [mode]"** - (Orchestrator mode) Understand available work in mode and coordinate parallel agent execution
 
 ## Coordination Enforcement Commands (MANDATORY)
 - **"Enforce coordination [task-file]"** - Claim task and register with coordination system
@@ -88,7 +98,7 @@
 - **"Validate documentation"** - Check documentation accuracy against current project state
 
 ## Documentation Commands
-- **"Update documentation"** - Refresh project documentation based on current state (should be minimal if documentation-first followed)
+- **"Update documentation"** - Execute batch documentation update process capturing all session learnings
 - **"Is documentation up to date?"** - Verify documentation currency and identify gaps
 - **"Show architecture"** - Display current architecture decisions and rationale
 - **"Show requirements"** - Display functional requirements and specifications
@@ -146,21 +156,109 @@ bash meta/scripts/mandatory-coordination-check.sh [agent-mode] continue_developm
 
 ## "List Tasks" Command Implementation
 
-### For Implementation Agents (Bevy, EnTT, Flecs, Console)
+### Traditional File-Based Tasks
+#### For Implementation Agents (Bevy, EnTT, Flecs, Console)
 - Lists only tasks in the current agent's tasks/ directory
 - Shows just the .md filenames (e.g., environment-setup.md, bevy-validation.md)
 - Implementation: `ls {current_mode_directory}/tasks/*.md | xargs basename`
 
-### For Orchestrator Mode
+#### For Orchestrator Mode
 - Lists tasks across ALL agent directories
 - Shows tasks organized by agent/mode
 - Implementation: `find /mnt/c/Dev/gol -path "*/tasks/*.md" -type f -exec basename {} \; | sort`
 - Format: Shows agent assignment and task filename
 
-### For Default Mode
+#### For Default Mode
 - Shows overview of all available tasks
 - May include recommendations for which mode to switch to
 - Implementation: Same as orchestrator but with mode switching guidance
+
+### GitHub Issues-Based Tasks
+#### For Implementation Agents (Bevy, EnTT, Flecs, Console)
+- Lists GitHub Issues with agent-specific labels
+- Shows issue numbers, titles, status, and assignees
+- Implementation: `bash meta/scripts/github-analyze-agent-tasks.sh [agent-mode]`
+
+#### For Orchestrator Mode
+- Lists GitHub Issues across ALL agent modes
+- Shows issues organized by agent/mode with coordination status
+- Implementation: `bash meta/scripts/github-analyze-agent-tasks.sh all`
+- Format: Shows agent assignment, issue number, and priority
+
+#### For Default Mode
+- Shows overview of all GitHub Issues across the project
+- Includes recommendations for which mode to switch to
+- Implementation: `bash meta/scripts/github-analyze-agent-tasks.sh all` with mode guidance
+
+## GitHub Issues Commands Implementation
+
+### GitHub Continue Development Command
+Equivalent to "Continue development" but using GitHub Issues system:
+```bash
+# Check GitHub coordination status
+bash meta/scripts/github-coordination-check.sh [agent-mode] continue_development
+
+# If coordination passed, work continues on assigned GitHub Issue
+# If no assignment, shows mandatory coordination requirements
+```
+
+### GitHub List Tasks Commands
+- **"GitHub list tasks"** - Show GitHub Issues for current agent mode
+- **"List GitHub tasks"** - Alternative syntax
+- **"Show GitHub issues"** - Alternative syntax
+- Implementation: `bash meta/scripts/github-analyze-agent-tasks.sh [agent-mode]`
+
+### GitHub Task Coordination Commands
+- **"GitHub claim [issue-number]"** - Assign GitHub Issue to current agent
+- **"Claim GitHub issue [issue-number]"** - Alternative syntax
+- Implementation: `bash meta/scripts/github-enforce-coordination.sh [agent-mode] [issue-number]`
+
+### GitHub Task Completion Commands
+- **"GitHub complete [issue-number]"** - Complete and close GitHub Issue
+- **"Complete GitHub issue [issue-number]"** - Alternative syntax
+- **"Finish GitHub issue [issue-number]"** - Alternative syntax
+- Implementation: `bash meta/scripts/github-task-completion.sh [agent-mode] [issue-number] [message]`
+
+### GitHub Status Update Commands
+- **"GitHub update status [issue-number] [status]"** - Change GitHub Issue status
+- **"Update GitHub status [issue-number] [status]"** - Alternative syntax
+- **"Change GitHub status [issue-number] [status]"** - Alternative syntax
+- Implementation: `bash meta/scripts/github-core-ops.sh change-status [issue-number] [status]`
+
+### GitHub Issue Creation Commands
+- **"Create GitHub issue [title]"** - Create new GitHub Issue for current agent
+- Implementation: `bash meta/scripts/github-core-ops.sh create "[title]" "[description]" medium [agent-mode]`
+
+### GitHub Coordination Integration
+All GitHub commands integrate with coordination system:
+
+#### Before GitHub Task Work:
+```bash
+# Check GitHub coordination status
+bash meta/scripts/github-coordination-check.sh [agent-mode] work_on_task
+
+# Claim GitHub Issue (if not already assigned)
+bash meta/scripts/github-enforce-coordination.sh [agent-mode] [issue-number]
+```
+
+#### During GitHub Task Work:
+- Maintain GitHub Issue assignment
+- Follow GitHub coordination protocol
+- Update progress via issue comments
+
+#### After GitHub Task Completion:
+```bash
+# Complete task and update status
+bash meta/scripts/github-task-completion.sh [agent-mode] [issue-number] "[completion-message]"
+
+# Status automatically updated to done and issue closed
+```
+
+### GitHub Continue Development Command:
+```bash
+# Use GitHub coordination check for continue development
+bash meta/scripts/github-coordination-check.sh [agent-mode] continue_development
+```
 
 ## Session Management Commands Implementation
 

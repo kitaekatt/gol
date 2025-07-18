@@ -12,10 +12,11 @@ The shutdown process is the final sequence of operations before ending a develop
 4. **Commit Status**: Verify all changes are committed if requested by user
 
 ### Phase 2: Documentation Validation
-1. **Real-time Documentation Check**: Verify documentation was updated during task completion
-2. **Gap Assessment**: Identify any documentation gaps that need immediate attention
-3. **Currency Verification**: Confirm documentation matches current implementation state
-4. **Future Session Preparation**: Ensure documentation enables smooth session resumption
+1. **Session Learning Capture**: Collect all insights, improvements, and changes from session
+2. **Documentation Update Execution**: Execute "update documentation" process to batch update all documentation
+3. **Gap Assessment**: Identify any documentation gaps that need immediate attention
+4. **Currency Verification**: Confirm documentation matches current implementation state
+5. **Future Session Preparation**: Ensure documentation enables smooth session resumption
 
 ### Phase 3: Status Reporting
 1. **Progress Summary**: Provide clear summary of completed work

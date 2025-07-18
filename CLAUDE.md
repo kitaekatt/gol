@@ -45,9 +45,18 @@ I am now operating as a meta-development agent with the following active constra
 - **"Switch to [mode] mode"** - Change to specified mode
 - **"Update the orchestrator"** - Provide structured completion report (stay in current mode)
 - **"Orchestrate [task description]"** - Create task file and spawn sub-task using Task tool (orchestrator mode only)
+- **"Update documentation"** - Execute batch documentation update process (captures all session learnings)
 - **"Begin shutdown"** - Initiate proper shutdown sequence with quality gates
 - **"Is documentation up to date?"** - Verify documentation currency before shutdown
 - **"Session status"** - Show current task status and shutdown readiness
+
+### GitHub Issues Commands (NEW)
+- **"GitHub list tasks"** - Show GitHub Issues for current agent mode
+- **"GitHub claim [issue-number]"** - Assign GitHub Issue to current agent
+- **"GitHub complete [issue-number]"** - Complete and close GitHub Issue
+- **"GitHub continue development"** - Continue work using GitHub Issues system
+- **"GitHub update status [issue-number] [status]"** - Change GitHub Issue status
+- **"Create GitHub issue [title]"** - Create new GitHub Issue for current agent
 
 ### Available Modes
 - **Default Mode**: Entry point and mode selection
@@ -111,6 +120,7 @@ Use `/clear` commands at strategic points:
 5. **Memory Maintenance**: Execute maintenance protocols regularly to prevent documentation drift
 6. **Documentation Validation**: Verify documentation matches current project reality during reviews
 7. **Orchestration Workflow**: When user says "orchestrate [task]", create task file and spawn sub-task with full communication flow visibility
+8. **Orchestration Planning**: Always start orchestration with comprehensive plan sharing before spawning agents
 
 ## Workflow Optimization Notes
 
@@ -119,6 +129,13 @@ Use `/clear` commands at strategic points:
   * Consider solutions like making dedicated bash scripts that can quickly and with a single tool call give you the information you need.
   * When executing work, consider if a bash script will allow you to accomplish work more quickly.
   * These scripts must be in a tmp directory of some sort and be deleted as they are task-specific.
+
+- **Orchestration Planning Protocol**:
+  * **Plan First**: Always start orchestration with comprehensive plan sharing before spawning agents
+  * **Coordination Options**: Present parallel vs sequential task coordination and agent spawning vs manual coordination options
+  * **Outcome Description**: Describe benefits/outcomes of proposed tasks and what they enable next
+  * **Completion Reporting**: When grouped tasks complete, summarize benefits achieved and next task group opportunities
+  * **Decision Points**: Clear communication about coordination strategy choices for user approval
 
 ## Task Analysis Script - CRITICAL WORKFLOW IMPROVEMENT
 
@@ -144,6 +161,43 @@ Use `/clear` commands at strategic points:
 - Structured decision summary
 
 **DO NOT** create new task analysis scripts - use the existing one at `meta/scripts/analyze-agent-tasks.sh`
+
+## GitHub Issues Task System - NEW WORKFLOW OPTION
+
+**IMPORTANT**: Agents can now choose between traditional file-based tasks and GitHub Issues-based tasks:
+
+### GitHub Issues Task Analysis Scripts:
+- **Bevy**: `Bash(command="bash meta/scripts/github-analyze-agent-tasks.sh bevy")`
+- **EnTT**: `Bash(command="bash meta/scripts/github-analyze-agent-tasks.sh entt")`  
+- **Flecs**: `Bash(command="bash meta/scripts/github-analyze-agent-tasks.sh flecs")`
+- **Console**: `Bash(command="bash meta/scripts/github-analyze-agent-tasks.sh console")`
+- **Meta**: `Bash(command="bash meta/scripts/github-analyze-agent-tasks.sh meta")`
+- **All Agents**: `Bash(command="bash meta/scripts/github-analyze-agent-tasks.sh all")`
+
+### GitHub Issues Coordination Scripts:
+- **Coordination Check**: `Bash(command="bash meta/scripts/github-coordination-check.sh [mode] work_on_task")`
+- **Claim Issue**: `Bash(command="bash meta/scripts/github-enforce-coordination.sh [mode] [issue-number]")`
+- **Complete Task**: `Bash(command="bash meta/scripts/github-task-completion.sh [mode] [issue-number] [message]")`
+
+### GitHub Issues Core Operations:
+- **List Issues**: `Bash(command="bash meta/scripts/github-core-ops.sh list [status] [agent] [priority]")`
+- **Get Issue**: `Bash(command="bash meta/scripts/github-core-ops.sh get [issue-number]")`
+- **Create Issue**: `Bash(command="bash meta/scripts/github-core-ops.sh create \"[title]\" \"[body]\" [priority] [agent]")`
+- **Update Status**: `Bash(command="bash meta/scripts/github-core-ops.sh change-status [issue-number] [status]")`
+- **Add Comment**: `Bash(command="bash meta/scripts/github-core-ops.sh comment [issue-number] \"[comment]\"")`
+
+### Task System Selection Guide:
+- **Traditional File-Based**: Use for established workflows, file-based task management
+- **GitHub Issues**: Use for better collaboration, issue tracking, and project visibility
+- **Both systems** can operate in parallel during transition period
+- **Mode templates** include instructions for both systems
+
+### GitHub Issues Benefits:
+- **Better Visibility**: Tasks visible in GitHub UI and project boards
+- **Enhanced Collaboration**: Comments, assignees, labels for coordination
+- **Integrated Workflow**: Links directly with code commits and PRs
+- **Project Management**: Native GitHub project management features
+- **Audit Trail**: Complete history of task progress and decisions
 
 ---
 

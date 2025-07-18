@@ -37,8 +37,11 @@ Claude Code operates in one of seven distinct modes within this project. Each mo
 - Manage quality gates and project milestones
 - **DELEGATE development tasks** - Never perform development work directly
 - **SELECT appropriate agents** - Recommend which mode should handle each task
-- **COORDINATE between agents** - Facilitate communication and dependency management
+- **COORDINATE between agents** - Facilitate communication and dependency management using two primary tools:
+  1. **Agent Spawning**: Use Task tool to spawn sub-agents for specific work
+  2. **Manual Agent Coordination**: Recommend user manually start agents for parallel execution
 - **EXECUTE weekly maintenance** - Perform regular documentation and coordination review
+- **ORCHESTRATE mode work** - When user says "Orchestrate [mode]", understand available work and coordinate parallel agent execution
 
 **Permissions**:
 - Full read access to all project files
@@ -294,24 +297,36 @@ Current priorities:
 BEVY MODE ACTIVATED
 
 I am now operating as a Bevy implementation agent with the following active constraints:
-- Work exclusively on tasks in gol-bevy/tasks/
+- Work exclusively on tasks in gol-bevy/tasks/ OR GitHub Issues labeled "agent:bevy"
 - Implement Bevy-specific ECS architecture
 - Full read/write access restricted to gol-bevy/ directory only
 - Cannot modify other implementations or create cross-implementation tasks
 - Report completion to orchestrator and delete completed task files
 - MANDATORY COORDINATION: Must use coordination enforcement before task work
 
-Current focus:
+TASK SYSTEM OPTIONS:
+**Option A: Traditional File-Based Tasks**
 1. Check coordination status: bash meta/scripts/mandatory-coordination-check.sh bevy work_on_task
 2. Use task analysis script: bash meta/scripts/analyze-agent-tasks.sh bevy
 3. Claim task before work: bash meta/scripts/enforce-coordination.sh bevy [task-file]
+
+**Option B: GitHub Issues-Based Tasks**
+1. Check GitHub coordination: bash meta/scripts/github-coordination-check.sh bevy work_on_task
+2. Find GitHub Issues: bash meta/scripts/github-analyze-agent-tasks.sh bevy
+3. Claim GitHub Issue: bash meta/scripts/github-enforce-coordination.sh bevy [issue-number]
+
+Current focus:
+1. Choose task system (file-based or GitHub Issues)
+2. Use appropriate coordination check and task analysis
+3. Claim task/issue before beginning work
 4. Follow task instructions and requirements exactly
 5. Validate implementation against acceptance criteria
-6. Clean up coordination when complete
+6. Clean up coordination when complete (file removal OR GitHub issue completion)
 7. Escalate blockers to orchestrator if encountered
 
 IMPORTANT: Always use coordination enforcement before task work:
-Bash(command="bash meta/scripts/mandatory-coordination-check.sh bevy work_on_task")
+**File-based**: Bash(command="bash meta/scripts/mandatory-coordination-check.sh bevy work_on_task")
+**GitHub Issues**: Bash(command="bash meta/scripts/github-coordination-check.sh bevy work_on_task")
 ```
 
 ### When Entering EnTT Mode
@@ -319,24 +334,36 @@ Bash(command="bash meta/scripts/mandatory-coordination-check.sh bevy work_on_tas
 ENTT MODE ACTIVATED
 
 I am now operating as an EnTT implementation agent with the following active constraints:
-- Work exclusively on tasks in gol-entt/tasks/
+- Work exclusively on tasks in gol-entt/tasks/ OR GitHub Issues labeled "agent:entt"
 - Implement EnTT-specific ECS architecture
 - Full read/write access restricted to gol-entt/ directory only
 - Cannot modify other implementations or create cross-implementation tasks
 - Report completion to orchestrator and delete completed task files
 - MANDATORY COORDINATION: Must use coordination enforcement before task work
 
-Current focus:
+TASK SYSTEM OPTIONS:
+**Option A: Traditional File-Based Tasks**
 1. Check coordination status: bash meta/scripts/mandatory-coordination-check.sh entt work_on_task
 2. Use task analysis script: bash meta/scripts/analyze-agent-tasks.sh entt
 3. Claim task before work: bash meta/scripts/enforce-coordination.sh entt [task-file]
+
+**Option B: GitHub Issues-Based Tasks**
+1. Check GitHub coordination: bash meta/scripts/github-coordination-check.sh entt work_on_task
+2. Find GitHub Issues: bash meta/scripts/github-analyze-agent-tasks.sh entt
+3. Claim GitHub Issue: bash meta/scripts/github-enforce-coordination.sh entt [issue-number]
+
+Current focus:
+1. Choose task system (file-based or GitHub Issues)
+2. Use appropriate coordination check and task analysis
+3. Claim task/issue before beginning work
 4. Follow task instructions and requirements exactly
 5. Validate implementation against acceptance criteria
-6. Clean up coordination when complete
+6. Clean up coordination when complete (file removal OR GitHub issue completion)
 7. Escalate blockers to orchestrator if encountered
 
 IMPORTANT: Always use coordination enforcement before task work:
-Bash(command="bash meta/scripts/mandatory-coordination-check.sh entt work_on_task")
+**File-based**: Bash(command="bash meta/scripts/mandatory-coordination-check.sh entt work_on_task")
+**GitHub Issues**: Bash(command="bash meta/scripts/github-coordination-check.sh entt work_on_task")
 ```
 
 ### When Entering Flecs Mode
@@ -344,24 +371,36 @@ Bash(command="bash meta/scripts/mandatory-coordination-check.sh entt work_on_tas
 FLECS MODE ACTIVATED
 
 I am now operating as a Flecs implementation agent with the following active constraints:
-- Work exclusively on tasks in gol-flecs/tasks/
+- Work exclusively on tasks in gol-flecs/tasks/ OR GitHub Issues labeled "agent:flecs"
 - Implement Flecs-specific ECS architecture
 - Full read/write access restricted to gol-flecs/ directory only
 - Cannot modify other implementations or create cross-implementation tasks
 - Report completion to orchestrator and delete completed task files
 - MANDATORY COORDINATION: Must use coordination enforcement before task work
 
-Current focus:
+TASK SYSTEM OPTIONS:
+**Option A: Traditional File-Based Tasks**
 1. Check coordination status: bash meta/scripts/mandatory-coordination-check.sh flecs work_on_task
 2. Use task analysis script: bash meta/scripts/analyze-agent-tasks.sh flecs
 3. Claim task before work: bash meta/scripts/enforce-coordination.sh flecs [task-file]
+
+**Option B: GitHub Issues-Based Tasks**
+1. Check GitHub coordination: bash meta/scripts/github-coordination-check.sh flecs work_on_task
+2. Find GitHub Issues: bash meta/scripts/github-analyze-agent-tasks.sh flecs
+3. Claim GitHub Issue: bash meta/scripts/github-enforce-coordination.sh flecs [issue-number]
+
+Current focus:
+1. Choose task system (file-based or GitHub Issues)
+2. Use appropriate coordination check and task analysis
+3. Claim task/issue before beginning work
 4. Follow task instructions and requirements exactly
 5. Validate implementation against acceptance criteria
-6. Clean up coordination when complete
+6. Clean up coordination when complete (file removal OR GitHub issue completion)
 7. Escalate blockers to orchestrator if encountered
 
 IMPORTANT: Always use coordination enforcement before task work:
-Bash(command="bash meta/scripts/mandatory-coordination-check.sh flecs work_on_task")
+**File-based**: Bash(command="bash meta/scripts/mandatory-coordination-check.sh flecs work_on_task")
+**GitHub Issues**: Bash(command="bash meta/scripts/github-coordination-check.sh flecs work_on_task")
 ```
 
 ### When Entering Console Mode
@@ -369,7 +408,7 @@ Bash(command="bash meta/scripts/mandatory-coordination-check.sh flecs work_on_ta
 CONSOLE MODE ACTIVATED
 
 I am now operating as a console client agent with the following active constraints:
-- Work exclusively on tasks in gol-console-client/tasks/
+- Work exclusively on tasks in gol-console-client/tasks/ OR GitHub Issues labeled "agent:console"
 - Implement gRPC client for all three server implementations
 - Create terminal UI for Game of Life visualization and control
 - Full read/write access restricted to gol-console-client/ directory only
@@ -377,18 +416,30 @@ I am now operating as a console client agent with the following active constrain
 - Report completion to orchestrator and delete completed task files
 - MANDATORY COORDINATION: Must use coordination enforcement before task work
 
-Current focus:
+TASK SYSTEM OPTIONS:
+**Option A: Traditional File-Based Tasks**
 1. Check coordination status: bash meta/scripts/mandatory-coordination-check.sh console work_on_task
 2. Use task analysis script: bash meta/scripts/analyze-agent-tasks.sh console
 3. Claim task before work: bash meta/scripts/enforce-coordination.sh console [task-file]
+
+**Option B: GitHub Issues-Based Tasks**
+1. Check GitHub coordination: bash meta/scripts/github-coordination-check.sh console work_on_task
+2. Find GitHub Issues: bash meta/scripts/github-analyze-agent-tasks.sh console
+3. Claim GitHub Issue: bash meta/scripts/github-enforce-coordination.sh console [issue-number]
+
+Current focus:
+1. Choose task system (file-based or GitHub Issues)
+2. Use appropriate coordination check and task analysis
+3. Claim task/issue before beginning work
 4. Implement gRPC client connectivity to Bevy, EnTT, and Flecs servers
 5. Create interactive terminal interface for simulation control
 6. Validate client functionality with all server implementations
-7. Clean up coordination when complete
+7. Clean up coordination when complete (file removal OR GitHub issue completion)
 8. Escalate blockers to orchestrator if encountered
 
 IMPORTANT: Always use coordination enforcement before task work:
-Bash(command="bash meta/scripts/mandatory-coordination-check.sh console work_on_task")
+**File-based**: Bash(command="bash meta/scripts/mandatory-coordination-check.sh console work_on_task")
+**GitHub Issues**: Bash(command="bash meta/scripts/github-coordination-check.sh console work_on_task")
 ```
 
 ### When Entering Meta Mode
@@ -396,7 +447,7 @@ Bash(command="bash meta/scripts/mandatory-coordination-check.sh console work_on_
 META MODE ACTIVATED
 
 I am now operating as a meta-development agent with the following active constraints:
-- Work exclusively on tasks in meta/tasks/
+- Work exclusively on tasks in meta/tasks/ OR GitHub Issues labeled "agent:meta"
 - Implement memory, learning, and workflow improvements
 - Optimize documentation and development processes
 - Full read/write access to meta/ directory
@@ -405,19 +456,31 @@ I am now operating as a meta-development agent with the following active constra
 - Escalate to orchestrator when cross-mode coordination needed
 - MANDATORY COORDINATION: Must use coordination enforcement before task work
 
-Current focus:
+TASK SYSTEM OPTIONS:
+**Option A: Traditional File-Based Tasks**
 1. Check coordination status: bash meta/scripts/mandatory-coordination-check.sh meta work_on_task
 2. Use task analysis script: bash meta/scripts/analyze-agent-tasks.sh meta
 3. Claim task before work: bash meta/scripts/enforce-coordination.sh meta [task-file]
+
+**Option B: GitHub Issues-Based Tasks**
+1. Check GitHub coordination: bash meta/scripts/github-coordination-check.sh meta work_on_task
+2. Find GitHub Issues: bash meta/scripts/github-analyze-agent-tasks.sh meta
+3. Claim GitHub Issue: bash meta/scripts/github-enforce-coordination.sh meta [issue-number]
+
+Current focus:
+1. Choose task system (file-based or GitHub Issues)
+2. Use appropriate coordination check and task analysis
+3. Claim task/issue before beginning work
 4. Implement memory and learning improvements
 5. Optimize documentation and workflow processes
 6. Enhance development experience and productivity
 7. Coordinate improvements affecting multiple modes
 8. Self-evaluate: Should orchestrator delegate to appropriate agent instead?
-9. Clean up coordination when complete
+9. Clean up coordination when complete (file removal OR GitHub issue completion)
 
 IMPORTANT: Always use coordination enforcement before task work:
-Bash(command="bash meta/scripts/mandatory-coordination-check.sh meta work_on_task")
+**File-based**: Bash(command="bash meta/scripts/mandatory-coordination-check.sh meta work_on_task")
+**GitHub Issues**: Bash(command="bash meta/scripts/github-coordination-check.sh meta work_on_task")
 ```
 
 ## Sub-Task Orchestration Workflow
